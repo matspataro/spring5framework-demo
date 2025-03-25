@@ -1,6 +1,7 @@
 package com.smallspringproject.spring5framework.controllers;
 
 import com.smallspringproject.spring5framework.mail.MailSender;
+import jakarta.mail.MessagingException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class MailController {
     }
 
     @RequestMapping("/mail")
-    public String mail() {
+    public String mail() throws MessagingException {
 
         mailSender.send("test@example.com", "Hello", "This is a test email");
 
